@@ -94,4 +94,5 @@ module.controller('[c.name/]Ctrl', ['['/]'$scope', '$filter', '$http', function 
 	    });    
 	};
 	$scope.listar[a.name.toUpperFirst()/]();
+	
 [/template]

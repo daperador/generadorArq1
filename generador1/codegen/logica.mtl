@@ -112,16 +112,18 @@ private [c.name/] convertirDTO([c.name/]DTO dto){
 	[c.name/] entidad=new [c.name/]();
 	entidad.setId(dto.getId());
 	[c.attribute.converterDTOAttribute()/]
+	[c.getAssociations().navigableOwnedEnd->select(type <> c).converterDTOAttribute() /]
 	return entidad;
 }
 
 [/template]
 
-[template public converterDTOAttribute(a : Property)]
+[template public converterDTOAttribute(a : Property) ? (not a.isMany())]
 [if(a.isAttribute())]
 	entidad.set[a.name.toUpperFirst()/](dto.get[a.name.toUpperFirst()/]());
 [else]
-	//TODO: pendiente por implementar[a.name/]
+	entidad.set[a.name.toUpperFirst()/](new [a.type.name/]());
+	entidad.get[a.name.toUpperFirst()/].setId(dto.get[a.name.toUpperFirst()/]().getId());
 [/if]
 [/template]
 
@@ -134,12 +136,13 @@ private [c.name/]DTO convertirEntidad([c.name/] entidad){
 	[c.name/]DTO dto=new [c.name/]DTO();
 	dto.setId(entidad.getId());
 	[c.attribute.converterEntityAttribute()/]
+	[c.getAssociations().navigableOwnedEnd->select(type <> c).converterEntityAttribute() /]
 	return dto;
 }
 
 [/template]
 
-[template public converterEntityAttribute(a : Property)]
+[template public converterEntityAttribute(a : Property) ? (not a.isMany())]
 [if(a.isAttribute())]
 	dto.set[a.name.toUpperFirst()/](entidad.get[a.name.toUpperFirst()/]());
 [else]
@@ -179,3 +182,7 @@ private List<[c.name/]DTO> convertirEntidad(List<[c.name/]> entidades){
 }
 
 [/template]
+
+[query public isMany(s : MultiplicityElement) : Boolean =
+	s.lower > 1 or s.upper = -1 or s.upper > 1 
+/]

@@ -55,7 +55,7 @@
 [/file]
 [/template]
 
-[template public headerTable(a : Property)]
+[template public headerTable(a : Property) ? (not a.isMany())]
 				<th>
                     [a.name/]
                 </th>
