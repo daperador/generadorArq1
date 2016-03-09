@@ -123,7 +123,7 @@ private [c.name/] convertirDTO([c.name/]DTO dto){
 	entidad.set[a.name.toUpperFirst()/](dto.get[a.name.toUpperFirst()/]());
 [else]
 	entidad.set[a.name.toUpperFirst()/](new [a.type.name/]());
-	entidad.get[a.name.toUpperFirst()/].setId(dto.get[a.name.toUpperFirst()/]().getId());
+	entidad.get[a.name.toUpperFirst()/]().setId(dto.get[a.name.toUpperFirst()/]().getId());
 [/if]
 [/template]
 
