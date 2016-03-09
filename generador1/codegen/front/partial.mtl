@@ -73,6 +73,10 @@
 	<td class="row">{{row.[a.name/].nombre}}</td>              
 [/template]
 
+[template public associationDataTable(a : Property) ? (not a.isMany())]
+	<td class="row">{{row.[a.name/].nombre}}</td>              
+[/template]
+
 [template public fieldDef(a : Property)]
 				<div class="row">
                     <div class="form-group col-md-6" ng-class="errores.idAseg?'error':''">
