@@ -55,6 +55,8 @@ import java.util.Date;
 
 [template public generate(a : Property) ? (a.isMany())]
 
+
+
 /**
 * @generated
 */
@@ -76,7 +78,7 @@ public void set[a.name.toUpperFirst()/](List<[a.type.name/]DTO> [a.name/]){
 
 [comment Single properties /]
 
-[template public generate(a : Property)]
+[template public generate(a : Property) ? (not a.isMany())]
 
 /**
 * @generated
