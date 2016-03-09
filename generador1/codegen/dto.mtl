@@ -89,7 +89,7 @@ public void set[a.name.toUpperFirst()/](List<[a.type.name/]DTO> [a.name/]){
 [comment Accessors for Collection /]
 
 
-[template public accessors(a : Property) ? (a.isMany() and a.isOrdered)]
+[template public accessors(a : Property) ? (a.isMany())]
 
 /**
 * @generated
@@ -127,35 +127,9 @@ public void set[a.name.toUpperFirst()/](List<[a.type.name/]DTO> [a.name/]){
 [a.visibility/] void set[a.name.toUpperFirst()/]([a.type.name/] [a.name/]) {
     this.[a.name/] = [a.name/];
 }
-[else]
-/**
-* @generated
-*/
-[a.visibility/] [a.type.name/]DTO get[a.name.toUpperFirst()/]() {
-    return this.[a.name/];
-}
-
-/**
-* @generated
-*/
-[a.visibility/] void set[a.name.toUpperFirst()/]([a.type.name/]DTO [a.name/]) {
-    this.[a.name/] = [a.name/];
-}
 [/if]
 [/template]
 
-
-[comment Operations /]
-
-[template public generate(o : Operation)]
-/**
-* @generated
-*/
-[o.visibility/] [o.name/]() {
-    //TODO
-}
-
-[/template]
 
 [template public classHeader(c : Class)]
 [c.visibility/] class [c.name/]DTO[c.extendsHeader()/][c.implementsHeader()/]

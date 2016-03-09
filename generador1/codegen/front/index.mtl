@@ -81,5 +81,4 @@
 
 [template public generate(c : Class)]
 <li><a onclick="accionMenu('[c.name/].html#/')">[c.name/]</a></li>
-
 [/template]
