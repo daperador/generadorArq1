@@ -41,7 +41,7 @@
     <div class="panel-title principal-title">Parametrizaci&oacute;n de [c.name/]</div>
     <div class="panel-body">
         <form role="form" id="formularioEditar">
-            [c.attribute.fieldDef()/]
+            [c.attribute.fieldDef()/] 
 			[c.getAssociations().navigableOwnedEnd->select(type <> c).associationDef() /]
 			<div class="btn-group">
 				<button type="button" class="btn btn-default" ng-click="guardar()" ng-show="nuevoRegistro">Guardar</button>
@@ -76,8 +76,8 @@
 [template public fieldDef(a : Property)]
 				<div class="row">
                     <div class="form-group col-md-6" ng-class="errores.idAseg?'error':''">
-                        <label>[a.name/]</label>
-[if(a.type.name.equalsIgnoreCase('Date'))]
+                        <label title="Esto es un [a.type.name/]">[a.name/]</label>
+[if(a.type.name.equalsIgnoreCase('Date'))] 
 						<input id="[a.name/]" 
                                class="form-control datepicker" 
                                type="text" 
