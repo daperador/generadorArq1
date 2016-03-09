@@ -6,6 +6,9 @@
 
 package [p.getQualifiedName().replaceAll('::', '.')/].dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseDTO {
 
     private Long id;

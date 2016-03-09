@@ -143,7 +143,10 @@ private [c.name/]DTO convertirEntidad([c.name/] entidad){
 [if(a.isAttribute())]
 	dto.set[a.name.toUpperFirst()/](entidad.get[a.name.toUpperFirst()/]());
 [else]
-	//TODO: pendiente por implementar[a.name/]
+	dto.set[a.name.toUpperFirst()/](
+		new BaseDTO(
+			entidad.get[a.name.toUpperFirst()/]().getId(),
+			entidad.get[a.name.toUpperFirst()/]().getNombre()));
 [/if]
 [/template]
 

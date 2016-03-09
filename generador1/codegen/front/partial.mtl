@@ -15,12 +15,14 @@
         <table class="resultados table table-striped">
             <tr>
                 [c.attribute.headerTable()/]
+				[c.getAssociations().navigableOwnedEnd->select(type <> c).headerTable() /]
 				<th>
                     &nbsp;
                 </th>
             </tr>
             <tr ng-repeat="row in lista">
                 [c.attribute.dataTable()/]
+				[c.getAssociations().navigableOwnedEnd->select(type <> c).associationDataTable() /]
 				<td class="row">
                     <button type="button" class="btn btn-default" ng-click="editar(row)">
                         <span class="glyphicon glyphicon-pencil"></span>Editar
@@ -66,6 +68,10 @@
 	[/if]                
 [/template]
 
+[template public associationDataTable(a : Property) ? (not a.isMany())]
+	<td class="row">{{row.[a.name/].nombre}}</td>              
+[/template]
+
 [template public fieldDef(a : Property)]
 				<div class="row">
                     <div class="form-group col-md-6" ng-class="errores.idAseg?'error':''">
@@ -97,3 +103,20 @@
                     </div>
                 </div>
 [/template]
+
+[template public associationDef(a : Property) ? (not a.isMany())]
+				<div class="row">
+                    <div class="form-group col-md-6" ng-class="errores.idAseg?'error':''">
+                        <label>[a.name/]</label>
+						<select id="[a.name/]" class="form-control" 
+                            ng-model="datosFormulario.[a.name/]"
+                            ng-options="option.nombre for option in lista[a.name.toUpperFirst()/] track by option.id">
+                    	</select>
+                        <div ng-show="errores.[a.name/]">{{errores.[a.name/]}}</div>
+                    </div>
+                </div>
+[/template]
+
+[query public isMany(s : MultiplicityElement) : Boolean =
+	s.lower > 1 or s.upper = -1 or s.upper > 1 
+/]
