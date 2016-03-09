@@ -21,7 +21,9 @@ module.controller('[c.name/]Ctrl', ['['/]'$scope', '$filter', '$http', function 
 		        alert('Error al consultar la informaci\xf3n, por favor intente más tarde');
 	    });    
 	};
-	
+
+	[c.getAssociations().navigableOwnedEnd->select(type <> c).listarRelacion() /]
+
 	$scope.listar();
 	//guardar
 	$scope.nuevo = function () {
