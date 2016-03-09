@@ -82,7 +82,7 @@ public void set[a.name.toUpperFirst()/](List<[a.type.name/]DTO> [a.name/]){
 * @generated
 */
 [if(a.isAttribute())]private [a.type.name/] [a.name/];
-[else]private [a.type.name/]DTO [a.name/];[/if]
+[else]private BaseDTO [a.name/];[/if]
 
 [/template]
 
@@ -93,14 +93,28 @@ public void set[a.name.toUpperFirst()/](List<[a.type.name/]DTO> [a.name/]){
 /**
 * @generated
 */
-[a.visibility/] [a.type.name/] get[a.name.toUpperFirst()/]() {
+public [a.type.name/] get[a.name.toUpperFirst()/]() {
     return this.[a.name/];
 }
 
 /**
 * @generated
 */
-[a.visibility/] void set[a.name.toUpperFirst()/]([a.type.name/] [a.name/]) {
+public void set[a.name.toUpperFirst()/]([a.type.name/] [a.name/]) {
+    this.[a.name/] = [a.name/];
+}
+[else]
+/**
+* @generated
+*/
+public BaseDTO get[a.name.toUpperFirst()/]() {
+    return this.[a.name/];
+}
+
+/**
+* @generated
+*/
+public void set[a.name.toUpperFirst()/](BaseDTO [a.name/]) {
     this.[a.name/] = [a.name/];
 }
 [/if]
