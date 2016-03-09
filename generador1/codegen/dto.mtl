@@ -88,7 +88,7 @@ public void set[a.name.toUpperFirst()/](List<[a.type.name/]DTO> [a.name/]){
 
 [comment Accessors for single element /]
 
-[template public accessors(a : Property)]
+[template public accessors(a : Property) ? (not a.isMany())]
 [if(a.isAttribute())]
 /**
 * @generated
