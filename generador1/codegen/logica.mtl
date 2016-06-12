@@ -128,7 +128,7 @@ private [c.name/] convertirDTO([c.name/]DTO dto){
 
 [template public converterDTOAttribute(a : Property) ? (not a.isMany())]
 [if(a.isAttribute())]
-[if(a.type.name='DATE')]
+[if(a.type.name='Date')]
 	if(dto.get[a.name.toUpperFirst()/]()!=null){
 		try {
 			entidad.set[a.name.toUpperFirst()/](fecha.parse(dto.get[a.name.toUpperFirst()/]()));
@@ -162,7 +162,7 @@ private [c.name/]DTO convertirEntidad([c.name/] entidad){
 
 [template public converterEntityAttribute(a : Property) ? (not a.isMany())]
 [if(a.isAttribute())]
-[if(a.type.name='DATE')]
+[if(a.type.name='Date')]
 	if(entidad.get[a.name.toUpperFirst()/]()!=null){
 		dto.set[a.name.toUpperFirst()/](fecha.format(entidad.get[a.name.toUpperFirst()/]()));
 	}
