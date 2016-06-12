@@ -76,7 +76,7 @@
 [template public fieldDef(a : Property)]
 				<div class="row">
                     <div class="form-group col-md-6" ng-class="errores.idAseg?'error':''">
-                        <label title="Esto es un [a.type.name/]">[a.name/]</label>
+                        <label for="[a.name/]">[a.name/]</label>
 [if(a.type.name.equalsIgnoreCase('Date'))] 
 						<input id="[a.name/]" 
                                class="form-control datepicker" 
@@ -92,13 +92,12 @@
 							   type="check"
                                class="form-control" 
                                ng-model="datosFormulario.[a.name/]"/>
-
 [else]
                         <input id="[a.name/]" 
                                class="form-control" 
 							   type="text"
-                               ng-model="datosFormulario.[a.name/]"/>
-
+                               ng-model="datosFormulario.[a.name/]"
+							   placeholder="[a.name/]"/>
 [/if]
                         <div ng-show="errores.[a.name/]">{{errores.[a.name/]}}</div>
                     </div>

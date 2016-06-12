@@ -13,6 +13,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         
         <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+[if (c.attribute->exists(a : Property | a.type.name.equalsIgnoreCase('Date')))]
+		<script src="https://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+[/if]
     </head>
     <body>
         <div class="content">
@@ -39,3 +42,5 @@
 
 [/file]
 [/template]
+
+
