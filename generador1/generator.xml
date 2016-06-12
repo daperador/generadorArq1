@@ -15,4 +15,5 @@
   <m2t name="front/index.mtl"/>
   <m2t name="front/crud.mtl"/>
   <m2t name="front/partial.mtl"/>
+  <m2t name="front/css.mtl"/>
 </generator>
