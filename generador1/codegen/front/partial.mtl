@@ -10,7 +10,7 @@
 </div>
 				
 <div class="panel panel-primary" ng-hide="panelEditar">
-    <div class="panel-title principal-title">Parametrizaci&oacute;n de [c.name/]</div>
+    <div class="panel-heading">Parametrizaci&oacute;n de [c.name/]</div>
     <div class="panel-body">
         <table class="resultados table table-striped">
             <tr>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="panel panel-primary" ng-show="panelEditar">
-    <div class="panel-title principal-title">Parametrizaci&oacute;n de [c.name/]</div>
+    <div class="panel-heading">Parametrizaci&oacute;n de [c.name/]</div>
     <div class="panel-body">
         <form role="form" id="formularioEditar">
             [c.attribute.fieldDef()/] 
