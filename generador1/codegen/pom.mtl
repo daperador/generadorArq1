@@ -11,7 +11,7 @@
 	<groupId>[p.name.replaceAll('::', '.').substring(0,p.name.replaceAll('::', '.').lastIndex('.'))/]</groupId>
     <artifactId>[p.name.replaceAll('::', '.').substring(p.name.replaceAll('::', '.').lastIndex('.'))/]</artifactId>
 [else]
-	<groupId>[p.name/]</groupId>
+	    <groupId>[p.name/]</groupId>
     <artifactId>[p.name/]</artifactId>
 [/if]
 	<version>1.0</version>
