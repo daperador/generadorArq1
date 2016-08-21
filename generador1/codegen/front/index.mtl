@@ -6,7 +6,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Aplicaci&oacute;n [p.name.substring(p.name.lastIndex('::')).toUpperFirst()/]</title>
+[if (p.name.replaceAll('::', '.').lastIndex('.')>0)]
+	<title>Aplicaci&oacute;n [p.name.replaceAll('::', '.').substring(p.name.replaceAll('::', '.').lastIndex('.')).toUpperFirst()/]</title>
+[else]
+	<title>Aplicaci&oacute;n [p.name.toUpperFirst()/]</title>        
+[/if]
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
